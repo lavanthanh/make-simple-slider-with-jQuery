@@ -1,8 +1,8 @@
-# make-simple-slider-with-jQuery
-Tạo Slider đơn giản với html/css/jQuery
+###### Tạo Slider đơn giản với html/css/jQuery
 
 ### Cấu trúc HTML
 
+<code>
 <section id="slider">
     <div class="imgList">
         <figure>
@@ -30,9 +30,11 @@ Tạo Slider đơn giản với html/css/jQuery
         <li>5</li>
     </ul>
 </section>
+</code>
 
 ### CSS
 
+<code>
 * {
     padding: 0;
     margin: 0;
@@ -92,14 +94,21 @@ img {
     margin-bottom: 0;
 }
 
-#slider .navList li:hover,
-#slider .navList li.active {
+#slider .navList li:hover {
     background-color: red;
     color: yellow;
 }
 
+#slider .navList li.active {
+    background-color: red;
+    color: yellow;
+}
+</code>
+
 
 ### Tiến hành viết jQuery cho slider
+
+<code>
 $(function () {
     //Tao bien index = 0; de lay phan tu dau tien
     var index = 0;
@@ -155,3 +164,5 @@ $(function () {
     }
 
 });
+
+</code>
