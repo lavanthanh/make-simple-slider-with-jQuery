@@ -3,26 +3,26 @@
 <head>
     <title>Make</title>
 
-    <link rel="stylesheet" href="stylesheet/main.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
     <section id="slider">
         <div class="imgList">
             <figure>
-                <img src="images/1.jpg">
+                <img src="http://picsum.photos/900/500/?image=152">
             </figure>
             <figure>
-                <img src="images/2.jpg">
+                <img src="http://picsum.photos/900/500/?image=12">
             </figure>
             <figure>
-                <img src="images/3.jpg">
+                <img src="http://picsum.photos/900/500/?image=1">
             </figure>
             <figure>
-                <img src="images/4.jpg">
+                <img src="http://picsum.photos/900/500/?image=123">
             </figure>
             <figure>
-                <img src="images/5.jpg">
+                <img src="http://picsum.photos/900/500/?image=125">
             </figure>
         </div>
 
@@ -37,7 +37,64 @@
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.2/jquery.js'></script>
 
-    <script src="scripts/script.js"></script>
+    <script>
+        $(function () {
+            //Tao bien index = 0; de lay phan tu dau tien
+            var index = 0;
+
+            $('.imgList figure')
+                .eq(index)
+                .show()
+                .siblings()
+                .hide()
+
+            $('.navList li')
+                .eq(index)
+                .addClass('active')
+                .siblings()
+                .removeClass('active')
+
+            // Tao su kien on click len li
+            $('.navList li').on('click', function () {
+                // Khoi tao bien target bang voi index cua chinh no khi click
+                var target = $(this).index()
+
+                // Neu target bang voi index hien tai thi khong lam gi het
+                if (target === index) {
+                    return false
+                }
+
+                // Goi ham change item
+                changeItem(target)
+
+            });
+
+            // Khoi tao ham changeView 
+            function changeItem(target) {
+
+                // Thuc hien voi imagList
+                $('.imgList figure')
+                    .eq(target)
+                    .fadeIn(800)
+                    .end() // Ket thuc va tim index truoc do out di
+                    .eq(index)
+                    .fadeOut(800)
+
+                // Thuc hien voi navList
+                $('.navList li')
+                    .eq(target)
+                    .addClass('active')
+                    .end() // Ket thuc
+                    .eq(index)
+                    .removeClass('active')
+
+                index = target
+
+            }
+
+        });
+    
+    </script>
 </body>
 
 </html>
